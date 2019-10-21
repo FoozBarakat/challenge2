@@ -42,17 +42,27 @@ Create a factory function called makeComputer that represents computers,
 What different attributes computers may have? 
 Create two computers object from your factory function and save them in one array called computers!
 
-Note: please write one or two lines here describing your solution.
+Note: factory function is function that contauns just return statment so we can call every time we want to add new object.
 */
 
 function makeComputer(type, color, weight) {
-  // TODO: Your code here
+  return {
+    type: type,
+    colot: color,
+    weight: weight
+  }
 }
+
+var computer1 = makeComputer('hp', 'black', '10');
+var computer2 = makeComputer('dell', 'red', '12');
+
+var computers = [];
+computers.push(computer1, computer2);
 
 // Write a function displayComputer that can be used to display one computer.
 
 function displayComputer(computer) {
-  // TODO: Your code here
+  return computer.type + ', ' + computer.color + ', ' + computer.weight;
 }
 
 //=============================================================================
@@ -66,14 +76,16 @@ and returns an array of all of those strings, but transformed to upper case.
 You can use toUpperCase method to convert a string to upper case. 
 Solve it using the most appropriate helper functions(each,map,filter).
 
-Note: please write one or two lines here describing your solution.
+Note: i used map because we want to return a new array, each don't return a new array, and filtter used when we have a condition.
 
 var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
 
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+  return map(arrayOfStrings, function(element) {
+    return element.toUpperCase();
+  });
 }
 
 //=============================================================================
@@ -87,7 +99,7 @@ with only the countries that have a population higher than 500 million.
 Solve it using one of the most appropriate helperthe helpers functions(each,map,filter).
 
 highestPopulation(data); ==> [{country: "China", population: 1409517397},{country: "India", population: 1339180127}]
-Note: please write one or two lines here describing your solution.
+Note: i used filter because we need to pass a condition > 500 milion.
 
 Here’s the data you’ll work with:
 */
@@ -112,7 +124,9 @@ var data = [
 ];
 
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+  return filter (arrayOfObjects, function(element, key) {
+    return element['population'] > 500000000;
+  });
 }
 
 //=============================================================================
@@ -128,11 +142,13 @@ Note: solve it using the most appropriate helper functions(each,map,filter)
 var numsArray = [2, 6, 20, 8, 14];
 halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 
-Note: please write one or two lines here describing your solution.
+Note: i used map because we want to return a new array, each don't return a new array, and filtter used when we have a condition.
 */
 
 function halveAll(numbers) {
-  // your code is here
+  return map(numbers, function(element) {
+    return element / 2;
+  });
 }
 
 //=============================================================================
@@ -145,10 +161,12 @@ Solve it using one of the most appropriate helpers functions(each,map,filter).
 
 values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129];
 
-Note: please write one or two lines here describing your solution.
+Note: i used map because we want to return a new array, each don't return a new array, and filtter used when we have a condition.
 */
 function values(obj) {
-  // TODO: your code here
+  return map(obj, function(element) {
+    return element;
+  })
 }
 
 //Good Luck :))
